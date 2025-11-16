@@ -1,16 +1,13 @@
-// src/componentes/Footer.tsx
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="app-footer">
 
-      {/* Texto izquierda */}
       <div className="footer-left">
         {new Date().getFullYear()} IES Cura Valera.
       </div>
 
-      {/* Iconos derecha */}
       <div className="footer-right">
         <a href="https://www.facebook.com/p/Ies-Cura-Valera-100011212297789/?locale=es_ES" target="_blank" rel="noreferrer">
           <FaFacebookF className="footer-icon" />

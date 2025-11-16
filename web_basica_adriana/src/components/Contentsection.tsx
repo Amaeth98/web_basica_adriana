@@ -83,7 +83,6 @@ export default function Contentsection() {
         Mundo de la Fotografía
       </h2>
 
-      {/* CARDS */}
       <Row className="g-4 mb-5">
         {cardsData.map((card, i) => (
           <Col md={4} sm={6} xs={12} key={i}>
@@ -92,7 +91,6 @@ export default function Contentsection() {
         ))}
       </Row>
 
-      {/* CARRUSEL ANDALUCIA */}
       <h3 className="mb-3">Galería de Andalucía</h3>
 
       <div className="andalucia-carousel">
