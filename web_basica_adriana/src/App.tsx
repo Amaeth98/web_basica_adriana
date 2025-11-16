@@ -1,4 +1,3 @@
-// src/App.tsx
 import Header from './components/Header';
 import NavbarComponent from './components/Navbar';
 import Contentsection from './components/Contentsection';
