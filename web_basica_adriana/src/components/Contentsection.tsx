@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
+import HeroesTabla from "./HeroesTabla";
 
 interface CardProps {
   title: string;
@@ -161,6 +162,11 @@ export default function Contentsection() {
           </Carousel.Item>
 
         </Carousel>
+
+        <HeroesTabla publisher="Marvel Comics" />
+
+        <HeroesTabla publisher="DC Comics" />
+
       </div>
     </Container>
   );
