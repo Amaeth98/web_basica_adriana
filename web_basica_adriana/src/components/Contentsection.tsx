@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -51,6 +53,28 @@ const InfoCard = ({
 };
 
 export default function Contentsection() {
+
+  const { nombre } = useParams<{ nombre?: string }>();
+
+  if (nombre) {
+    const nombreLimpio = decodeURIComponent(nombre).trim();
+    const inicial = nombreLimpio.charAt(0).toUpperCase();
+
+    return (
+      <Container className="usuario-avatar-page">
+        <div className="usuario-avatar-card">
+          <Avatar className="usuario-avatar-circle">{inicial}</Avatar>
+          <div className="usuario-avatar-text">
+            <h2>Bienvenido, {nombreLimpio}</h2>
+            <p>
+              ¡Gracias por visitar Fotografía Adriana!
+            </p>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+
   const cardsData: CardProps[] = [
     {
       title: "Fotografía de Paisaje",
