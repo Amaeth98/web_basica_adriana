@@ -515,3 +515,54 @@ body, #root, .App {
 .usuario-avatar-text p + p {
   margin-top: 0.4rem;
 }
+
+/* ---------- NOTICIAS ---------- */
+
+.noticias-layout {
+  margin-top: 1.5rem;
+}
+
+.noticias-menu {
+  display: flex;
+  gap: 1rem;
+  margin: 0.8rem 0 1.5rem;
+}
+
+.noticias-menu a {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+  text-decoration: none;
+  color: #111827;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.noticias-menu a:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.noticia-caja {
+  background: #ffffff;
+  padding: 1.3rem 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+}
+
+/* ---------- 404 ---------- */
+
+.pagina404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.pagina-404-img {
+  width: 500px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}

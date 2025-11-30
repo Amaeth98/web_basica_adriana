@@ -17,6 +17,10 @@ interface CardProps {
   link: string;
 }
 
+interface ContentsectionProps {
+  mode?: "inicio" | "fotos";
+}
+
 const InfoCard = ({
   title,
   text,
@@ -52,8 +56,8 @@ const InfoCard = ({
   );
 };
 
-export default function Contentsection() {
-
+export default function Contentsection({ mode = "inicio" }: ContentsectionProps) {
+  
   const { nombre } = useParams<{ nombre?: string }>();
 
   if (nombre) {
@@ -102,96 +106,140 @@ export default function Contentsection() {
     },
   ];
 
+  const mostrarCards = mode === "inicio";
+  const mostrarTablas = mode === "inicio";
+  const mostrarCarrusel = mode === "inicio" || mode === "fotos";
+
   return (
     <Container>
-      <h2 className="mb-3" id="servicios">
-        Mundo de la Fotografía
-      </h2>
+      {mostrarCards && (
+        <>
+          <h2 className="mb-3" id="servicios">
+            Mundo de la Fotografía
+          </h2>
 
-      <Row className="g-4 mb-5">
-        {cardsData.map((card, i) => (
-          <Col md={4} sm={6} xs={12} key={i}>
-            <InfoCard {...card} />
-          </Col>
-        ))}
-      </Row>
+          <Row className="g-4 mb-5">
+            {cardsData.map((card, i) => (
+              <Col md={4} sm={6} xs={12} key={i}>
+                <InfoCard {...card} />
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
 
-      <h3 className="mb-3">Galería de Andalucía</h3>
+      {mostrarCarrusel && (
+        <>
+          <h3 className="mb-3">Galería de Andalucía</h3>
 
-      <div className="andalucia-carousel">
-        <Carousel>
+          <div className="andalucia-carousel">
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Almeria.jpg"
+                  alt="Almería"
+                />
+                <Carousel.Caption>
+                  <h3>Almería</h3>
+                  <p>Playas volcánicas del Parque Natural Cabo de Gata.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Almeria.jpg" alt="Almería" />
-            <Carousel.Caption>
-              <h3>Almería</h3>
-              <p>Playas volcánicas del Parque Natural Cabo de Gata.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Cadiz.jpg"
+                  alt="Cádiz"
+                />
+                <Carousel.Caption>
+                  <h3>Cádiz</h3>
+                  <p>Puestas de sol atlánticas increíbles.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Cadiz.jpg" alt="Cádiz" />
-            <Carousel.Caption>
-              <h3>Cádiz</h3>
-              <p>Puestas de sol atlánticas increíbles.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Cordoba.jpg"
+                  alt="Córdoba"
+                />
+                <Carousel.Caption>
+                  <h3>Córdoba</h3>
+                  <p>Historia viva en la Mezquita-Catedral.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Cordoba.jpg" alt="Córdoba" />
-            <Carousel.Caption>
-              <h3>Córdoba</h3>
-              <p>Historia viva en la Mezquita-Catedral.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/granada.jpeg"
+                  alt="Granada"
+                />
+                <Carousel.Caption>
+                  <h3>Granada</h3>
+                  <p>La Alhambra y el encanto del Albaicín.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/granada.jpeg" alt="Granada" />
-            <Carousel.Caption>
-              <h3>Granada</h3>
-              <p>La Alhambra y el encanto del Albaicín.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Huelva.jpg"
+                  alt="Huelva"
+                />
+                <Carousel.Caption>
+                  <h3>Huelva</h3>
+                  <p>Doñana y playas infinitas.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Huelva.jpg" alt="Huelva" />
-            <Carousel.Caption>
-              <h3>Huelva</h3>
-              <p>Doñana y playas infinitas.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Jaen.jpg"
+                  alt="Jaén"
+                />
+                <Carousel.Caption>
+                  <h3>Jaén</h3>
+                  <p>El mar de olivos y paisaje único.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Jaen.jpg" alt="Jaén" />
-            <Carousel.Caption>
-              <h3>Jaén</h3>
-              <p>El mar de olivos y paisaje único.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Malaga.jpeg"
+                  alt="Málaga"
+                />
+                <Carousel.Caption>
+                  <h3>Málaga</h3>
+                  <p>Capital cultural con costa mediterránea.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Malaga.jpeg" alt="Málaga" />
-            <Carousel.Caption>
-              <h3>Málaga</h3>
-              <p>Capital cultural con costa mediterránea.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 andalucia-carousel-img"
+                  src="/Sevilla.jpeg"
+                  alt="Sevilla"
+                />
+                <Carousel.Caption>
+                  <h3>Sevilla</h3>
+                  <p>Arte, historia y tradiciones únicas.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+          </div>
+        </>
+      )}
 
-          <Carousel.Item>
-            <img className="d-block w-100 andalucia-carousel-img" src="/Sevilla.jpeg" alt="Sevilla" />
-            <Carousel.Caption>
-              <h3>Sevilla</h3>
-              <p>Arte, historia y tradiciones únicas.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-
-        </Carousel>
-
-        <HeroesTabla publisher="Marvel Comics" />
-
-        <HeroesTabla publisher="DC Comics" />
-
-      </div>
+      {mostrarTablas && (
+        <>
+          <HeroesTabla publisher="Marvel Comics" />
+          <HeroesTabla publisher="DC Comics" />
+        </>
+      )}
     </Container>
   );
 }
