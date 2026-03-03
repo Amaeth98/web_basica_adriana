@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -12,26 +13,26 @@ export default function NavbarComponent() {
         </Navbar.Brand>
 
         <Nav className="ms-auto nav-items">
-          <Nav.Link href="#inicio">
+          <NavLink to="/" className="nav-link">
             <span className="nav-icon-text">
               <FaHouse className="nav-icon" />
               Inicio
             </span>
-          </Nav.Link>
+          </NavLink>
 
-          <Nav.Link href="#servicios">
+          <NavLink to="/fotos" className="nav-link">
             <span className="nav-icon-text">
               <FaScrewdriverWrench className="nav-icon" />
-              Servicios
+              Fotos
             </span>
-          </Nav.Link>
+          </NavLink>
 
-          <Nav.Link href="#contacto">
+          <NavLink to="/contacto" className="nav-link">
             <span className="nav-icon-text">
               <FaEnvelope className="nav-icon" />
               Contacto
             </span>
-          </Nav.Link>
+          </NavLink>
         </Nav>
       </Container>
     </Navbar>
